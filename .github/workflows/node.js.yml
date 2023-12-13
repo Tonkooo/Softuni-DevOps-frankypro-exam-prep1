@@ -22,6 +22,6 @@ jobs:
       run: npm install
     - name: run unit tests for app
       run: npm run test:unit
-    - name: Display softuni username
+    - name: Display Soft-uni username
       run: echo "frankypro"
 
