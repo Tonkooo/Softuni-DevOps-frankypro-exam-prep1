@@ -22,6 +22,15 @@ jobs:
       run: npm install
     - name: run unit tests for app
       run: npm run test:unit
-    - name: Display Soft-uni username
+    - name: Display Softuni username
       run: echo "frankypro"
 
+  deploy:
+    needs: build-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to production
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.MY_RENDER_API_KEY }}
